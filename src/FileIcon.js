@@ -9,6 +9,8 @@ import glyphs from './glyphs';
 extendColord([namesPlugin]);
 
 const propTypes = {
+  /** Override style for svg */
+  svgProps: PropTypes.object,
   /** Color of icon background */
   color: PropTypes.string,
   /** Text to display in label */
@@ -81,6 +83,7 @@ export const FileIcon = ({
   labelTextColor = 'white',
   labelUppercase = false,
   radius = 4,
+  svgProps = null,
   type,
 }) => {
   const UNIQUE_ID = uniqueId();
@@ -91,6 +94,7 @@ export const FileIcon = ({
       viewBox={`0 0 ${VIEWBOX.WIDTH} ${VIEWBOX.HEIGHT}`}
       width="100%"
       style={{ maxWidth: '100%' }}
+      {...svgProps}
     >
       <defs>
         <clipPath id={`pageRadius${UNIQUE_ID}`}>
